@@ -1,0 +1,42 @@
+{
+  "log": {},
+  "api": {},
+  "dns": {},
+  "stats": {},
+  "routing": {},
+  "policy": {},
+  "reverse": {},
+  "inbounds": [
+  {
+      "port": *,
+      "protocol": "socks",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      },
+      "settings": {
+        "auth": "noauth"
+      }
+    }
+  ],
+  "outbounds": [
+  {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "*.*.*.*",
+            "port": *,
+            "users": [
+              {
+                "id": "**************",
+                "alterId": *
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "transport": {}
+}
